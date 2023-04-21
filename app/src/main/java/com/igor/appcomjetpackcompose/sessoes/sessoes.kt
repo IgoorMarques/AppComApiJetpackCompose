@@ -1,8 +1,8 @@
 package com.igor.appcomjetpackcompose.sessoes
 
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,11 +10,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.igor.appcomjetpackcompose.R
 import com.igor.appcomjetpackcompose.SampleData.sampleCandies
 import com.igor.appcomjetpackcompose.models.Produto
 import com.igor.appcomjetpackcompose.produtos.ProdutoItem
-import java.math.BigDecimal
 
 @Composable
 fun ProdutoSection(nome: String, produtos: List<Produto>) {
@@ -25,18 +23,18 @@ fun ProdutoSection(nome: String, produtos: List<Produto>) {
             fontSize = 20.sp,
             fontWeight = FontWeight(400)
         )
-        Row(
+        LazyRow(
             Modifier
                 .padding(
                     top = 8.dp,
                 )
-                .fillMaxWidth()
-                .horizontalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(horizontal = 16.dp)
         ) {
-            for (produto in produtos){
-                ProdutoItem(produto = produto)
+            items(produtos){
+                produto ->
+                    ProdutoItem(produto = produto)
             }
         }
     }

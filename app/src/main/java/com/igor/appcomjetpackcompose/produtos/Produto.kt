@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,6 +22,7 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.igor.appcomjetpackcompose.R
 import com.igor.appcomjetpackcompose.extensions.moedaBrasileira
 import com.igor.appcomjetpackcompose.models.Produto
 import java.math.BigDecimal
@@ -53,14 +55,15 @@ fun ProdutoItem(produto: Produto) {
             ) {
                 AsyncImage(
                     model = produto.image,
-                    contentDescription = "Imagem do produto",
+                    contentDescription = null,
                     Modifier
                         .size(imageSize)
                         .offset(y = imageSize / 2)
                         .align(Alignment.BottomCenter)
                         .clip(shape = CircleShape)
                         .background(Color.White),
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.Crop,
+                    placeholder = painterResource(id = R.drawable.placeholder)
                 )
             }
             Spacer(Modifier.height(imageSize / 2))
