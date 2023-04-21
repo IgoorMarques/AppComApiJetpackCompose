@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.igor.appcomjetpackcompose.SampleData.sampleProducts
 import com.igor.appcomjetpackcompose.SampleData.sampleSections
+import com.igor.appcomjetpackcompose.exercicios.TelaAllProdutos
 import com.igor.appcomjetpackcompose.screens.HomeScreen
 import com.igor.appcomjetpackcompose.ui.theme.AppComJetpackComposeTheme
 
@@ -24,7 +26,7 @@ class MainActivity : ComponentActivity() {
 fun App(){
     AppComJetpackComposeTheme {
         Surface {
-            HomeScreen(sampleSections)
+            HomeScreen(sections = sampleSections)
         }
     }
 }
