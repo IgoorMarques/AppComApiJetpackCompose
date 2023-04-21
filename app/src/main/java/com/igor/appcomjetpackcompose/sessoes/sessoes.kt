@@ -32,9 +32,8 @@ fun ProdutoSection(nome: String, produtos: List<Produto>) {
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             contentPadding = PaddingValues(horizontal = 16.dp)
         ) {
-            items(produtos){
-                produto ->
-                    ProdutoItem(produto = produto)
+            items(produtos) { produto ->
+                ProdutoItem(produto = produto)
             }
         }
     }
